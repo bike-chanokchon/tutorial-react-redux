@@ -1,0 +1,8 @@
+
+    Redux Toolkit
+        เป็น Library ที่ทำให้เราสามารถจัดการ state ใน React Application ได้
+
+    Install
+        - @reduxjs/Toolkit
+        - react-redux
+        

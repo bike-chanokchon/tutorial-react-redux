@@ -1,34 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement } from './counterSlice'
+// useSelector ใช้อ่านข้อมูลจาก store
+// useDispatch ใช่เรียกใช้ action เพื่อให้เข้าไปจัดการกับ state
 
 function App() {
-  const [count, setCount] = useState(0)
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <h1>Hello Redux</h1>
+      <h2>Start editing to see some magic</h2>
+      <h1>{ count }</h1>
+      <button aria-label='Increment value' onClick={() => dispatch(increment())}>increment</button>
+      <button aria-label='Decrement value' onClick={() => dispatch(decrement())}>decrement</button>
+    </div>
   )
 }
 
